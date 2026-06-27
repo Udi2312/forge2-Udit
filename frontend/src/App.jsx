@@ -1,32 +1,41 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import axios from 'axios'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
+import { AuthProvider, useAuth } from './lib/auth'
+import Login from './pages/Login'
+import Register from './pages/Register'
+import Dashboard from './pages/Dashboard'
+import TicketDetail from './pages/TicketDetail'
 
-axios.defaults.baseURL = import.meta.env.VITE_API_URL || 'http://127.0.0.1:8000'
-axios.defaults.withCredentials = true
+function ProtectedRoute({ children }) {
+  const { user, loading } = useAuth()
+  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>
+  if (!user) return <Navigate to="/login" />
+  return children
+}
 
-function Home() {
+function PublicRoute({ children }) {
+  const { user, loading } = useAuth()
+  if (loading) return <div className="min-h-screen flex items-center justify-center">Loading...</div>
+  if (user) return <Navigate to="/" />
+  return children
+}
+
+function AppRoutes() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          PulseDesk
-        </h1>
-        <p className="text-gray-600">
-          Support desk platform — frontend scaffold ready.
-        </p>
-      </div>
-    </div>
+    <Routes>
+      <Route path="/login" element={<PublicRoute><Login /></PublicRoute>} />
+      <Route path="/register" element={<PublicRoute><Register /></PublicRoute>} />
+      <Route path="/" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
+      <Route path="/tickets/:id" element={<ProtectedRoute><TicketDetail /></ProtectedRoute>} />
+    </Routes>
   )
 }
 
-function App() {
+export default function App() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-      </Routes>
+      <AuthProvider>
+        <AppRoutes />
+      </AuthProvider>
     </BrowserRouter>
   )
 }
-
-export default App
