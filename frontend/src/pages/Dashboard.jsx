@@ -7,16 +7,30 @@ export default function Dashboard() {
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
-  const [filter, setFilter] = useState('')
+  const [filters, setFilters] = useState({ status: '', priority: '', assignee_id: '', tag: '' })
+  const [tags, setTags] = useState([])
+  const [members, setMembers] = useState([])
+
+  useEffect(() => {
+    Promise.all([
+      api.get('/api/tags'),
+      api.get('/api/org/members'),
+    ]).then(([t, m]) => {
+      setTags(t.data)
+      setMembers(m.data)
+    })
+  }, [])
 
   useEffect(() => {
     loadTickets()
-  }, [filter])
+  }, [filters])
 
   const loadTickets = async () => {
     setLoading(true)
     const params = {}
-    if (filter) params.status = filter
+    Object.entries(filters).forEach(([key, val]) => {
+      if (val) params[key] = val
+    })
     const res = await api.get('/api/tickets', { params })
     setTickets(res.data.data || [])
     setLoading(false)
@@ -36,6 +50,16 @@ export default function Dashboard() {
     urgent: 'bg-red-100 text-red-600',
   }
 
+  const tagColors = {
+    gray: 'bg-gray-100 text-gray-700',
+    blue: 'bg-blue-100 text-blue-700',
+    green: 'bg-green-100 text-green-700',
+    yellow: 'bg-yellow-100 text-yellow-700',
+    red: 'bg-red-100 text-red-700',
+    purple: 'bg-purple-100 text-purple-700',
+    orange: 'bg-orange-100 text-orange-700',
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm border-b">
@@ -47,10 +71,7 @@ export default function Dashboard() {
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600">{user?.name}</span>
-              <button
-                onClick={logout}
-                className="text-sm text-indigo-600 hover:text-indigo-500"
-              >
+              <button onClick={logout} className="text-sm text-indigo-600 hover:text-indigo-500">
                 Sign out
               </button>
             </div>
@@ -69,20 +90,75 @@ export default function Dashboard() {
           </button>
         </div>
 
-        {showForm && <NewTicketForm onCreated={loadTickets} onCancel={() => setShowForm(false)} />}
+        {showForm && <NewTicketForm tags={tags} onCreated={loadTickets} onCancel={() => setShowForm(false)} />}
 
-        <div className="mb-4 flex gap-2">
-          {['', 'open', 'pending', 'resolved', 'closed'].map((s) => (
-            <button
-              key={s}
-              onClick={() => setFilter(s)}
-              className={`px-3 py-1 rounded-full text-sm font-medium ${
-                filter === s ? 'bg-indigo-600 text-white' : 'bg-white text-gray-600 border'
-              }`}
+        {/* Advanced Filters */}
+        <div className="mb-4 bg-white p-4 rounded-lg shadow-sm border space-y-3">
+          <div className="flex flex-wrap gap-2">
+            <select
+              value={filters.status}
+              onChange={(e) => setFilters({ ...filters, status: e.target.value })}
+              className="rounded-md border-gray-300 border p-2 text-sm"
             >
-              {s || 'All'}
-            </button>
-          ))}
+              <option value="">All Statuses</option>
+              <option value="open">Open</option>
+              <option value="pending">Pending</option>
+              <option value="resolved">Resolved</option>
+              <option value="closed">Closed</option>
+            </select>
+
+            <select
+              value={filters.priority}
+              onChange={(e) => setFilters({ ...filters, priority: e.target.value })}
+              className="rounded-md border-gray-300 border p-2 text-sm"
+            >
+              <option value="">All Priorities</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="urgent">Urgent</option>
+            </select>
+
+            <select
+              value={filters.assignee_id}
+              onChange={(e) => setFilters({ ...filters, assignee_id: e.target.value })}
+              className="rounded-md border-gray-300 border p-2 text-sm"
+            >
+              <option value="">All Assignees</option>
+              <option value="unassigned">Unassigned</option>
+              {members.map((m) => (
+                <option key={m.id} value={m.id}>{m.name}</option>
+              ))}
+            </select>
+
+            <select
+              value={filters.tag}
+              onChange={(e) => setFilters({ ...filters, tag: e.target.value })}
+              className="rounded-md border-gray-300 border p-2 text-sm"
+            >
+              <option value="">All Tags</option>
+              {tags.map((t) => (
+                <option key={t.id} value={t.name}>{t.name}</option>
+              ))}
+            </select>
+
+            <input
+              type="text"
+              placeholder="Search..."
+              value={filters.search || ''}
+              onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+              className="flex-1 min-w-48 rounded-md border-gray-300 border p-2 text-sm"
+            />
+
+            {(filters.status || filters.priority || filters.assignee_id || filters.tag || filters.search) && (
+              <button
+                onClick={() => setFilters({ status: '', priority: '', assignee_id: '', tag: '', search: '' })}
+                className="px-3 py-2 text-sm text-gray-500 hover:text-gray-700"
+              >
+                Clear
+              </button>
+            )}
+          </div>
         </div>
 
         {loading ? (
@@ -98,7 +174,8 @@ export default function Dashboard() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Subject</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
-                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Requester</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Assignee</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tags</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
@@ -117,7 +194,18 @@ export default function Dashboard() {
                         {ticket.priority}
                       </span>
                     </td>
-                    <td className="px-6 py-4 text-sm text-gray-600">{ticket.requester?.name}</td>
+                    <td className="px-6 py-4 text-sm text-gray-600">
+                      {ticket.assignee?.name || <span className="text-gray-400 italic">Unassigned</span>}
+                    </td>
+                    <td className="px-6 py-4">
+                      <div className="flex gap-1 flex-wrap">
+                        {ticket.tags?.map((tag) => (
+                          <span key={tag.id} className={`px-2 py-0.5 rounded-full text-xs ${tagColors[tag.color] || tagColors.gray}`}>
+                            {tag.name}
+                          </span>
+                        ))}
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -129,13 +217,21 @@ export default function Dashboard() {
   )
 }
 
-function NewTicketForm({ onCreated, onCancel }) {
-  const [form, setForm] = useState({ subject: '', description: '', priority: 'medium' })
+function NewTicketForm({ tags, onCreated, onCancel }) {
+  const [form, setForm] = useState({ subject: '', description: '', priority: 'medium', tag_ids: [] })
+
+  const toggleTag = (tagId) => {
+    const current = form.tag_ids
+    setForm({
+      ...form,
+      tag_ids: current.includes(tagId) ? current.filter((id) => id !== tagId) : [...current, tagId],
+    })
+  }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     await api.post('/api/tickets', form)
-    setForm({ subject: '', description: '', priority: 'medium' })
+    setForm({ subject: '', description: '', priority: 'medium', tag_ids: [] })
     onCreated()
     onCancel()
   }
@@ -168,7 +264,26 @@ function NewTicketForm({ onCreated, onCancel }) {
         <option value="high">High</option>
         <option value="urgent">Urgent</option>
       </select>
-      <div className="flex gap-2">
+      {tags.length > 0 && (
+        <div className="mb-2">
+          <p className="text-sm text-gray-600 mb-1">Tags:</p>
+          <div className="flex gap-2 flex-wrap">
+            {tags.map((t) => (
+              <button
+                key={t.id}
+                type="button"
+                onClick={() => toggleTag(t.id)}
+                className={`px-2 py-1 rounded-full text-xs border ${
+                  form.tag_ids.includes(t.id) ? 'bg-indigo-600 text-white border-indigo-600' : 'bg-white text-gray-600'
+                }`}
+              >
+                {t.name}
+              </button>
+            ))}
+          </div>
+        </div>
+      )}
+      <div className="flex gap-2 mt-2">
         <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm">
           Create
         </button>
