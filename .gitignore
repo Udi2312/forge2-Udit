@@ -1,0 +1,8 @@
+/backend/vendor
+/backend/.env
+/frontend/node_modules
+/frontend/.env
+/frontend/dist
+.DS_Store
+*node_modules
+# never commit real secrets / keys
