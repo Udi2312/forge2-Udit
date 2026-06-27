@@ -1,59 +1,69 @@
 import { useState } from 'react'
-import { useAuth } from '../auth'
+import { Link, useNavigate } from 'react-router-dom'
+import { useAuth } from '../lib/auth'
 
-export default function Login({ onSwitch }) {
+export default function Login() {
   const { login } = useAuth()
+  const navigate = useNavigate()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
-  const [busy, setBusy] = useState(false)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setBusy(true)
     setError('')
     try {
       await login(email, password)
-    } catch (err) {
-      setError(err.response?.data?.message || 'Login failed')
-    } finally {
-      setBusy(false)
+      navigate('/')
+    } catch {
+      setError('Invalid credentials')
     }
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 py-12 px-4">
+      <div className="max-w-md w-full space-y-8">
+        <div className="text-center">
           <h1 className="text-3xl font-bold text-gray-900">PulseDesk</h1>
-          <p className="text-gray-500 mt-1">Sign in to your workspace</p>
+          <p className="mt-2 text-gray-600">Sign in to your account</p>
         </div>
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 space-y-4">
-          {error && <div className="text-sm text-red-600 bg-red-50 rounded p-3">{error}</div>}
+        <form onSubmit={handleSubmit} className="mt-8 space-y-6">
+          {error && (
+            <div className="bg-red-50 text-red-700 p-3 rounded-md text-sm">{error}</div>
+          )}
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-            <input type="email" value={email} onChange={e => setEmail(e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              required />
+            <label className="block text-sm font-medium text-gray-700">Email</label>
+            <input
+              type="email"
+              required
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 border p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            />
           </div>
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Password</label>
-            <input type="password" value={password} onChange={e => setPassword(e.target.value)}
-              className="w-full rounded-md border border-gray-300 px-3 py-2 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
-              required />
+            <label className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              required
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="mt-1 block w-full rounded-md border-gray-300 border p-2 shadow-sm focus:border-indigo-500 focus:ring-indigo-500"
+            />
           </div>
-          <button type="submit" disabled={busy}
-            className="w-full bg-indigo-600 text-white rounded-md py-2 font-medium hover:bg-indigo-700 disabled:opacity-50">
-            {busy ? 'Signing in…' : 'Sign in'}
+          <button
+            type="submit"
+            className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+          >
+            Sign in
           </button>
+          <p className="text-center text-sm text-gray-600">
+            No account?{' '}
+            <Link to="/register" className="text-indigo-600 hover:text-indigo-500">
+              Register
+            </Link>
+          </p>
         </form>
-        <p className="text-center text-sm text-gray-500 mt-4">
-          New here?{' '}
-          <button onClick={onSwitch} className="text-indigo-600 hover:underline font-medium">Create an account</button>
-        </p>
-        <div className="mt-6 text-center text-xs text-gray-400">
-          Demo: alice@acme.com / password
-        </div>
       </div>
     </div>
   )

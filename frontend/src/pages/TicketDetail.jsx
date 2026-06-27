@@ -1,116 +1,137 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import axios from 'axios'
-import { useAuth } from '../auth'
+import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useAuth } from '../lib/auth'
+import api from '../lib/api'
 
 export default function TicketDetail() {
   const { id } = useParams()
   const navigate = useNavigate()
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const [ticket, setTicket] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [comment, setComment] = useState('')
+  const [comments, setComments] = useState([])
+  const [newComment, setNewComment] = useState('')
   const [isInternal, setIsInternal] = useState(false)
-  const [posting, setPosting] = useState(false)
 
   useEffect(() => {
-    axios.get(`/api/tickets/${id}`).then(res => {
-      setTicket(res.data)
-      setLoading(false)
-    }).catch(() => {
-      setLoading(false)
+    Promise.all([
+      api.get(`/api/tickets/${id}`),
+      api.get(`/api/tickets/${id}/comments`),
+    ]).then(([t, c]) => {
+      setTicket(t.data)
+      setComments(c.data)
     })
   }, [id])
 
-  const postComment = async (e) => {
+  const handleAddComment = async (e) => {
     e.preventDefault()
-    if (!comment.trim()) return
-    setPosting(true)
-    try {
-      const res = await axios.post(`/api/tickets/${id}/comments`, {
-        body: comment, is_internal: isInternal,
-      })
-      setTicket({ ...ticket, comments: [...(ticket.comments || []), res.data] })
-      setComment('')
-      setIsInternal(false)
-    } finally {
-      setPosting(false)
-    }
+    if (!newComment.trim()) return
+    const res = await api.post(`/api/tickets/${id}/comments`, {
+      body: newComment,
+      is_internal: isInternal,
+    })
+    setComments([...comments, res.data])
+    setNewComment('')
+    setIsInternal(false)
   }
 
-  const updateStatus = async (status) => {
-    const res = await axios.put(`/api/tickets/${id}`, { status })
+  const handleStatusChange = async (status) => {
+    const res = await api.put(`/api/tickets/${id}`, { status })
     setTicket(res.data)
   }
 
-  if (loading) return <div className="min-h-screen flex items-center justify-center text-gray-400">Loading…</div>
-  if (!ticket) return <div className="min-h-screen flex items-center justify-center text-gray-400">Ticket not found</div>
+  const statusColors = {
+    open: 'bg-blue-100 text-blue-800',
+    pending: 'bg-yellow-100 text-yellow-800',
+    resolved: 'bg-green-100 text-green-800',
+    closed: 'bg-gray-100 text-gray-800',
+  }
+
+  if (!ticket) return <div className="min-h-screen flex items-center justify-center">Loading...</div>
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-white border-b border-gray-200">
-        <div className="max-w-4xl mx-auto px-4 py-3 flex items-center gap-3">
-          <button onClick={() => navigate('/')} className="text-sm text-gray-500 hover:text-gray-900">← Back</button>
-          <span className="text-xl font-bold text-gray-900">PulseDesk</span>
+      <nav className="bg-white shadow-sm border-b">
+        <div className="max-w-7xl mx-auto px-4 flex justify-between h-16 items-center">
+          <div className="flex items-center gap-4">
+            <Link to="/" className="text-indigo-600 text-sm">← Back</Link>
+            <h1 className="text-xl font-bold text-gray-900">PulseDesk</h1>
+          </div>
+          <button onClick={() => { logout(); navigate('/login') }} className="text-sm text-indigo-600">
+            Sign out
+          </button>
         </div>
       </nav>
 
-      <div className="max-w-4xl mx-auto px-4 py-6 space-y-6">
-        {/* Ticket header */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <div className="flex items-start justify-between mb-3">
-            <h1 className="text-xl font-bold text-gray-900">{ticket.subject}</h1>
-            <select value={ticket.status} onChange={e => updateStatus(e.target.value)}
-              className="text-sm rounded-md border border-gray-300 px-2 py-1">
-              <option value="open">Open</option>
-              <option value="pending">Pending</option>
-              <option value="resolved">Resolved</option>
-              <option value="closed">Closed</option>
-            </select>
-          </div>
-          <div className="flex items-center gap-4 text-sm text-gray-500 mb-4">
-            <span>Priority: <strong className="text-gray-700 capitalize">{ticket.priority}</strong></span>
-            <span>Requester: <strong className="text-gray-700">{ticket.requester?.name}</strong></span>
-            {ticket.assignee && <span>Assignee: <strong className="text-gray-700">{ticket.assignee.name}</strong></span>}
+      <main className="max-w-4xl mx-auto px-4 py-8">
+        <div className="bg-white rounded-lg shadow p-6 mb-6">
+          <div className="flex justify-between items-start mb-4">
+            <div>
+              <h2 className="text-2xl font-bold text-gray-900">{ticket.subject}</h2>
+              <p className="text-sm text-gray-500 mt-1">#{ticket.id} · by {ticket.requester?.name}</p>
+            </div>
+            <span className={`px-3 py-1 rounded-full text-sm font-medium ${statusColors[ticket.status]}`}>
+              {ticket.status}
+            </span>
           </div>
           <p className="text-gray-700 whitespace-pre-wrap">{ticket.description}</p>
-        </div>
 
-        {/* Comments */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
-          <h3 className="font-semibold text-gray-900 mb-4">Comments ({ticket.comments?.length || 0})</h3>
-          <div className="space-y-3">
-            {(ticket.comments || []).map(c => (
-              <div key={c.id} className={`rounded-lg p-3 ${c.is_internal ? 'bg-amber-50 border border-amber-200' : 'bg-gray-50 border border-gray-200'}`}>
-                <div className="flex items-center justify-between mb-1">
-                  <span className="text-sm font-medium text-gray-700">{c.author?.name}</span>
-                  {c.is_internal && <span className="text-xs px-2 py-0.5 rounded bg-amber-200 text-amber-800">Internal</span>}
-                </div>
-                <p className="text-sm text-gray-700">{c.body}</p>
-              </div>
+          <div className="mt-4 flex gap-2">
+            {['open', 'pending', 'resolved', 'closed'].map((s) => (
+              <button
+                key={s}
+                onClick={() => handleStatusChange(s)}
+                className={`px-3 py-1 rounded-md text-xs font-medium border ${
+                  ticket.status === s ? 'bg-indigo-600 text-white border-indigo-600' : 'text-gray-600'
+                }`}
+              >
+                {s}
+              </button>
             ))}
           </div>
+        </div>
 
-          {/* Add comment */}
-          <form onSubmit={postComment} className="mt-4 space-y-2">
-            <textarea value={comment} onChange={e => setComment(e.target.value)}
-              placeholder="Write a reply…" rows="3"
-              className="w-full rounded-md border border-gray-300 px-3 py-2" />
-            <div className="flex items-center justify-between">
-              {user?.role !== 'customer' && (
-                <label className="flex items-center gap-2 text-sm text-gray-600">
-                  <input type="checkbox" checked={isInternal} onChange={e => setIsInternal(e.target.checked)} />
-                  Internal note
-                </label>
-              )}
-              <button type="submit" disabled={posting || !comment.trim()}
-                className="bg-indigo-600 text-white rounded-md px-4 py-2 text-sm font-medium hover:bg-indigo-700 disabled:opacity-50 ml-auto">
-                {posting ? 'Posting…' : 'Post'}
+        <div className="bg-white rounded-lg shadow p-6">
+          <h3 className="font-semibold text-gray-900 mb-4">Comments ({comments.length})</h3>
+          <div className="space-y-4 mb-6">
+            {comments.map((c) => (
+              <div key={c.id} className={`p-3 rounded-lg ${c.is_internal ? 'bg-yellow-50 border border-yellow-200' : 'bg-gray-50'}`}>
+                <div className="flex justify-between items-center mb-1">
+                  <span className="text-sm font-medium text-gray-900">{c.author?.name}</span>
+                  {c.is_internal && (
+                    <span className="text-xs bg-yellow-200 text-yellow-800 px-2 py-0.5 rounded">Internal</span>
+                  )}
+                </div>
+                <p className="text-sm text-gray-700 whitespace-pre-wrap">{c.body}</p>
+              </div>
+            ))}
+            {comments.length === 0 && <p className="text-gray-400 text-sm">No comments yet.</p>}
+          </div>
+
+          <form onSubmit={handleAddComment}>
+            <textarea
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Write a comment..."
+              className="block w-full rounded-md border-gray-300 border p-2 mb-2"
+              rows={3}
+            />
+            <div className="flex items-center gap-4">
+              <label className="flex items-center gap-2 text-sm text-gray-600">
+                <input
+                  type="checkbox"
+                  checked={isInternal}
+                  onChange={(e) => setIsInternal(e.target.checked)}
+                  className="rounded"
+                />
+                Internal note
+              </label>
+              <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm">
+                Add comment
               </button>
             </div>
           </form>
         </div>
-      </div>
+      </main>
     </div>
   )
 }
