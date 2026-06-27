@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 use App\Models\ActivityLog;
 use App\Models\Comment;
+use App\Models\Notification;
 use App\Models\Organization;
+use App\Models\SlaPolicy;
 use App\Models\Tag;
 use App\Models\Ticket;
 use App\Models\TicketMessage;
@@ -22,11 +24,19 @@ class DatabaseSeeder extends Seeder
             ->each(function ($org) {
                 $users = $org->users;
 
-                // Make sure at least 2 users are agents/admins
                 $users->first()->update(['role' => 'admin']);
                 $users->get(1)->update(['role' => 'agent']);
 
-                // Create tags per org
+                // Create SLA policies per priority
+                foreach (['low', 'medium', 'high', 'urgent'] as $priority) {
+                    SlaPolicy::factory()->create([
+                        'organization_id' => $org->id,
+                        'priority' => $priority,
+                        'name' => ucfirst($priority) . ' Priority SLA',
+                    ]);
+                }
+
+                // Create tags
                 $tags = Tag::factory()->count(4)->create([
                     'organization_id' => $org->id,
                 ]);
@@ -38,24 +48,20 @@ class DatabaseSeeder extends Seeder
                         'requester_id' => $users->random()->id,
                     ])
                     ->each(function ($ticket) use ($users, $tags) {
-                        // Attach random tags
                         $ticket->tags()->attach(
                             $tags->random(rand(0, 2))->pluck('id')->toArray()
                         );
 
-                        // Legacy comments
                         Comment::factory()->count(rand(1, 3))->create([
                             'ticket_id' => $ticket->id,
                             'author_id' => $users->random()->id,
                         ]);
 
-                        // Conversation messages
                         TicketMessage::factory()->count(rand(2, 5))->create([
                             'ticket_id' => $ticket->id,
                             'user_id' => $users->random()->id,
                         ]);
 
-                        // Activity log: creation event
                         ActivityLog::factory()->create([
                             'ticket_id' => $ticket->id,
                             'user_id' => $users->first()->id,
@@ -65,8 +71,13 @@ class DatabaseSeeder extends Seeder
                             'new_value' => null,
                         ]);
 
-                        // Random activity events
                         ActivityLog::factory()->count(rand(1, 3))->create([
+                            'ticket_id' => $ticket->id,
+                            'user_id' => $users->random()->id,
+                        ]);
+
+                        // Random notification for assignee/requester
+                        Notification::factory()->count(rand(0, 2))->create([
                             'ticket_id' => $ticket->id,
                             'user_id' => $users->random()->id,
                         ]);

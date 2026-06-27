@@ -7,6 +7,7 @@ use App\Models\Ticket;
 use App\Models\Tag;
 use App\Models\User;
 use App\Models\ActivityLog;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 
 class TicketController extends Controller
@@ -52,9 +53,15 @@ class TicketController extends Controller
             $query->orderBy($sort, $dir === 'asc' ? 'asc' : 'desc');
         }
 
-        return response()->json(
-            $query->latest()->paginate($request->get('per_page', 15))
-        );
+        $tickets = $query->latest()->paginate($request->get('per_page', 15));
+
+        // Append SLA status to each ticket
+        $tickets->getCollection()->transform(function ($ticket) {
+            $ticket->sla = $ticket->slaStatus();
+            return $ticket;
+        });
+
+        return response()->json($tickets);
     }
 
     public function store(Request $request)
@@ -86,12 +93,18 @@ class TicketController extends Controller
             'event' => 'created',
         ]);
 
+        // Notify all agents/admins of the org about the new ticket
+        $this->notifyOrgAgents($ticket, 'ticket_created', 'New ticket created', "Ticket #{$ticket->id}: {$ticket->subject}");
+
+        $ticket->sla = $ticket->slaStatus();
         return response()->json($ticket->load(['requester', 'assignee', 'tags']), 201);
     }
 
     public function show(Ticket $ticket)
     {
-        return response()->json($ticket->load(['requester', 'assignee', 'tags', 'comments.author']));
+        $ticket->load(['requester', 'assignee', 'tags', 'comments.author']);
+        $ticket->sla = $ticket->slaStatus();
+        return response()->json($ticket);
     }
 
     public function update(Request $request, Ticket $ticket)
@@ -121,7 +134,7 @@ class TicketController extends Controller
             }
         }
 
-        // Track changes for activity log
+        // Track changes for activity log + notifications
         $changes = [];
         foreach (['status', 'priority', 'assignee_id'] as $field) {
             if (array_key_exists($field, $data)) {
@@ -139,7 +152,7 @@ class TicketController extends Controller
 
         $ticket->update($data);
 
-        // Log changes
+        // Log changes + send notifications
         foreach ($changes as $change) {
             $eventLabel = match($change['field']) {
                 'status' => 'status_changed',
@@ -156,6 +169,9 @@ class TicketController extends Controller
                 'old_value' => $change['old_value'] ? (string) $change['old_value'] : null,
                 'new_value' => $change['new_value'] ? (string) $change['new_value'] : null,
             ]);
+
+            // Send notifications
+            $this->sendChangeNotification($ticket, $change['field'], $change['old_value'], $change['new_value'], $request->user());
         }
 
         if (array_key_exists('tag_ids', $data)) {
@@ -167,6 +183,7 @@ class TicketController extends Controller
             ]);
         }
 
+        $ticket->sla = $ticket->slaStatus();
         return response()->json($ticket->load(['requester', 'assignee', 'tags']));
     }
 
@@ -174,5 +191,56 @@ class TicketController extends Controller
     {
         $ticket->delete();
         return response()->json(['message' => 'Ticket deleted'], 200);
+    }
+
+    /**
+     * Send in-app notification about a ticket change to relevant users.
+     */
+    private function sendChangeNotification(Ticket $ticket, string $field, $oldVal, $newVal, $actor): void
+    {
+        // Determine recipients: requester + assignee (excluding the actor)
+        $recipientIds = collect([$ticket->requester_id, $ticket->assignee_id])
+            ->filter()
+            ->unique()
+            ->reject(fn ($id) => $id === $actor->id)
+            ->toArray();
+
+        $titles = [
+            'status' => "Status changed to {$newVal}",
+            'priority' => "Priority changed to {$newVal}",
+            'assignee_id' => $newVal ? 'Ticket assigned to you' : 'Ticket unassigned',
+        ];
+
+        $title = $titles[$field] ?? 'Ticket updated';
+
+        foreach ($recipientIds as $userId) {
+            Notification::create([
+                'user_id' => $userId,
+                'ticket_id' => $ticket->id,
+                'type' => $field . '_changed',
+                'title' => $title,
+                'body' => "Ticket #{$ticket->id} \"{$ticket->subject}\" — {$title}",
+            ]);
+        }
+    }
+
+    /**
+     * Notify all agents/admins in the org about a new ticket.
+     */
+    private function notifyOrgAgents(Ticket $ticket, string $type, string $title, string $body): void
+    {
+        $agents = User::where('organization_id', $ticket->organization_id)
+            ->whereIn('role', ['agent', 'admin'])
+            ->pluck('id');
+
+        foreach ($agents as $agentId) {
+            Notification::create([
+                'user_id' => $agentId,
+                'ticket_id' => $ticket->id,
+                'type' => $type,
+                'title' => $title,
+                'body' => $body,
+            ]);
+        }
     }
 }

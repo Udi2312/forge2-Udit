@@ -6,6 +6,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   PieChart, Pie, Cell, LineChart, Line, Legend,
 } from 'recharts'
+import NotificationBell from '../components/NotificationBell'
 
 const STATUS_COLORS = {
   open: '#3b82f6',
@@ -69,9 +70,12 @@ export default function Insights() {
             <Link to="/" className="text-indigo-600 text-sm">← Tickets</Link>
             <h1 className="text-xl font-bold text-gray-900">PulseDesk Insights</h1>
           </div>
-          <button onClick={() => { logout(); navigate('/login') }} className="text-sm text-indigo-600">
-            Sign out
-          </button>
+          <div className="flex items-center gap-3">
+            <NotificationBell />
+            <button onClick={() => { logout(); navigate('/login') }} className="text-sm text-indigo-600">
+              Sign out
+            </button>
+          </div>
         </div>
       </nav>
 

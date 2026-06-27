@@ -2,6 +2,7 @@ import { useState, useEffect, useCallback } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import { useAuth } from '../lib/auth'
 import api from '../lib/api'
+import NotificationBell from '../components/NotificationBell'
 
 export default function TicketDetail() {
   const { id } = useParams()
@@ -131,9 +132,12 @@ export default function TicketDetail() {
             <Link to="/insights" className="text-indigo-600 text-sm">Insights</Link>
             <h1 className="text-xl font-bold text-gray-900">PulseDesk</h1>
           </div>
-          <button onClick={() => { logout(); navigate('/login') }} className="text-sm text-indigo-600">
-            Sign out
-          </button>
+          <div className="flex items-center gap-3">
+            <NotificationBell />
+            <button onClick={() => { logout(); navigate('/login') }} className="text-sm text-indigo-600">
+              Sign out
+            </button>
+          </div>
         </div>
       </nav>
 
@@ -148,9 +152,36 @@ export default function TicketDetail() {
                   <h2 className="text-2xl font-bold text-gray-900">{ticket.subject}</h2>
                   <p className="text-sm text-gray-500 mt-1">#{ticket.id} · by {ticket.requester?.name}</p>
                 </div>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${statusColors[ticket.status]}`}>
-                  {ticket.status}
-                </span>
+                <div className="flex flex-col items-end gap-2">
+                  <span className={`px-3 py-1 rounded-full text-sm font-medium ${statusColors[ticket.status]}`}>
+                    {ticket.status}
+                  </span>
+                  {ticket.sla && ticket.sla.status && ticket.sla.status !== 'none' && (
+                    <div className="text-xs text-right">
+                      <span className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        ticket.sla.status === 'breached' ? 'bg-red-100 text-red-700' :
+                        ticket.sla.status === 'warning' ? 'bg-yellow-100 text-yellow-700' :
+                        ticket.sla.status === 'met' ? 'bg-gray-100 text-gray-500' :
+                        'bg-green-100 text-green-700'
+                      }`}>
+                        {ticket.sla.status === 'breached' ? '🔴 SLA Breached' :
+                         ticket.sla.status === 'warning' ? '⚠ SLA Risk' :
+                         ticket.sla.status === 'met' ? '✓ SLA Met' :
+                         '✓ SLA On Track'}
+                      </span>
+                      {ticket.sla.response_due && (
+                        <p className="text-gray-400 mt-1">
+                          Response: {new Date(ticket.sla.response_due).toLocaleString()}
+                        </p>
+                      )}
+                      {ticket.sla.resolution_due && (
+                        <p className="text-gray-400">
+                          Resolution: {new Date(ticket.sla.resolution_due).toLocaleString()}
+                        </p>
+                      )}
+                    </div>
+                  )}
+                </div>
               </div>
               <p className="text-gray-700 whitespace-pre-wrap">{ticket.description}</p>
 
@@ -369,11 +400,11 @@ export default function TicketDetail() {
               </div>
               <div>
                 <span className="text-gray-500">Created:</span>{' '}
-                <span className="text-gray-900">{new Date(ticket.created_at).toLocaleDateString()}</span>
+                <span className="text-gray-900">{new Date(ticket.created_at).toLocaleString()}</span>
               </div>
               <div>
                 <span className="text-gray-500">Updated:</span>{' '}
-                <span className="text-gray-900">{new Date(ticket.updated_at).toLocaleDateString()}</span>
+                <span className="text-gray-900">{new Date(ticket.updated_at).toLocaleString()}</span>
               </div>
             </div>
           </div>

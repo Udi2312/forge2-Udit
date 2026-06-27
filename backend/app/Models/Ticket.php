@@ -71,4 +71,57 @@ class Ticket extends Model
     {
         return $this->hasMany(ActivityLog::class);
     }
+
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
+
+    /**
+     * Get the SLA policy applicable to this ticket based on its priority.
+     */
+    public function slaPolicy()
+    {
+        return SlaPolicy::where('organization_id', $this->organization_id)
+            ->where('priority', $this->priority)
+            ->where('is_active', true)
+            ->first();
+    }
+
+    /**
+     * Compute SLA status: on_track, warning, breached, met, or none.
+     */
+    public function slaStatus(): array
+    {
+        $policy = $this->slaPolicy();
+        if (!$policy) {
+            return ['status' => 'none', 'response_due' => null, 'resolution_due' => null];
+        }
+
+        $createdAt = $this->created_at;
+        $responseDue = $createdAt->copy()->addMinutes($policy->response_time_minutes);
+        $resolutionDue = $createdAt->copy()->addMinutes($policy->resolution_time_minutes);
+        $now = now();
+
+        if (in_array($this->status, ['resolved', 'closed'])) {
+            $wasBreached = $this->updated_at > $resolutionDue;
+            return [
+                'status' => $wasBreached ? 'breached' : 'met',
+                'response_due' => $responseDue->toIso8601String(),
+                'resolution_due' => $resolutionDue->toIso8601String(),
+            ];
+        }
+
+        $resolutionBreached = $now > $resolutionDue;
+        $responseBreached = $now > $responseDue;
+
+        $warningThreshold = $resolutionDue->copy()->subMinutes((int)($policy->resolution_time_minutes * 0.2));
+        $isWarning = !$resolutionBreached && $now > $warningThreshold;
+
+        return [
+            'status' => $resolutionBreached ? 'breached' : ($isWarning ? 'warning' : ($responseBreached ? 'warning' : 'on_track')),
+            'response_due' => $responseDue->toIso8601String(),
+            'resolution_due' => $resolutionDue->toIso8601String(),
+        ];
+    }
 }

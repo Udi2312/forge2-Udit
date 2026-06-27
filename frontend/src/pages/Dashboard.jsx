@@ -1,14 +1,17 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../lib/auth'
 import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import api from '../lib/api'
+import NotificationBell from '../components/NotificationBell'
 
 export default function Dashboard() {
   const { user, logout } = useAuth()
+  const navigate = useNavigate()
   const [tickets, setTickets] = useState([])
   const [loading, setLoading] = useState(true)
   const [showForm, setShowForm] = useState(false)
-  const [filters, setFilters] = useState({ status: '', priority: '', assignee_id: '', tag: '' })
+  const [filters, setFilters] = useState({ status: '', priority: '', assignee_id: '', tag: '', search: '' })
   const [tags, setTags] = useState([])
   const [members, setMembers] = useState([])
 
@@ -61,6 +64,22 @@ export default function Dashboard() {
     orange: 'bg-orange-100 text-orange-700',
   }
 
+  const slaColors = {
+    on_track: 'bg-green-100 text-green-700',
+    warning: 'bg-yellow-100 text-yellow-700',
+    breached: 'bg-red-100 text-red-700',
+    met: 'bg-gray-100 text-gray-500',
+    none: '',
+  }
+
+  const slaLabels = {
+    on_track: 'SLA OK',
+    warning: 'SLA Risk',
+    breached: 'SLA Breached',
+    met: 'SLA Met',
+    none: '',
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
       <nav className="bg-white shadow-sm border-b">
@@ -71,7 +90,8 @@ export default function Dashboard() {
               <Link to="/insights" className="text-sm text-indigo-600 hover:text-indigo-500">Insights</Link>
               <span className="text-sm text-gray-500">{user?.organization?.name}</span>
             </div>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3">
+              <NotificationBell />
               <span className="text-sm text-gray-600">{user?.name}</span>
               <button onClick={logout} className="text-sm text-indigo-600 hover:text-indigo-500">
                 Sign out
@@ -94,8 +114,8 @@ export default function Dashboard() {
 
         {showForm && <NewTicketForm tags={tags} onCreated={loadTickets} onCancel={() => setShowForm(false)} />}
 
-        {/* Advanced Filters */}
-        <div className="mb-4 bg-white p-4 rounded-lg shadow-sm border space-y-3">
+        {/* Filters */}
+        <div className="mb-4 bg-white p-4 rounded-lg shadow-sm border">
           <div className="flex flex-wrap gap-2">
             <select
               value={filters.status}
@@ -164,9 +184,14 @@ export default function Dashboard() {
         </div>
 
         {loading ? (
-          <p className="text-gray-500">Loading...</p>
+          <div className="flex items-center justify-center py-12">
+            <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-indigo-600"></div>
+          </div>
         ) : tickets.length === 0 ? (
-          <p className="text-gray-500">No tickets found.</p>
+          <div className="bg-white rounded-lg shadow p-12 text-center">
+            <p className="text-gray-400 text-lg mb-2">No tickets found</p>
+            <p className="text-gray-400 text-sm">Try adjusting filters or create a new ticket.</p>
+          </div>
         ) : (
           <div className="bg-white shadow rounded-lg overflow-hidden">
             <table className="w-full">
@@ -176,14 +201,18 @@ export default function Dashboard() {
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Subject</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Priority</th>
+                  <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">SLA</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Assignee</th>
                   <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase">Tags</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200">
                 {tickets.map((ticket) => (
-                  <tr key={ticket.id} className="hover:bg-gray-50 cursor-pointer"
-                    onClick={() => window.location.href = `/tickets/${ticket.id}`}>
+                  <tr
+                    key={ticket.id}
+                    className="hover:bg-gray-50 cursor-pointer"
+                    onClick={() => navigate(`/tickets/${ticket.id}`)}
+                  >
                     <td className="px-6 py-4 text-sm text-gray-500">#{ticket.id}</td>
                     <td className="px-6 py-4 text-sm font-medium text-gray-900">{ticket.subject}</td>
                     <td className="px-6 py-4">
@@ -195,6 +224,13 @@ export default function Dashboard() {
                       <span className={`px-2 py-1 rounded-full text-xs font-medium ${priorityColors[ticket.priority]}`}>
                         {ticket.priority}
                       </span>
+                    </td>
+                    <td className="px-6 py-4">
+                      {ticket.sla && ticket.sla.status !== 'none' && (
+                        <span className={`px-2 py-1 rounded-full text-xs font-medium ${slaColors[ticket.sla.status] || ''}`}>
+                          {slaLabels[ticket.sla.status]}
+                        </span>
+                      )}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">
                       {ticket.assignee?.name || <span className="text-gray-400 italic">Unassigned</span>}
@@ -286,12 +322,8 @@ function NewTicketForm({ tags, onCreated, onCancel }) {
         </div>
       )}
       <div className="flex gap-2 mt-2">
-        <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm">
-          Create
-        </button>
-        <button type="button" onClick={onCancel} className="px-4 py-2 border rounded-md text-sm">
-          Cancel
-        </button>
+        <button type="submit" className="px-4 py-2 bg-indigo-600 text-white rounded-md text-sm">Create</button>
+        <button type="button" onClick={onCancel} className="px-4 py-2 border rounded-md text-sm">Cancel</button>
       </div>
     </form>
   )
