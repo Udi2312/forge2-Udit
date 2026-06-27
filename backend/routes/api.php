@@ -2,8 +2,11 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\TicketController;
+use App\Http\Controllers\Api\TicketMessageController;
 use App\Http\Controllers\Api\CommentController;
 use App\Http\Controllers\Api\TagController;
+use App\Http\Controllers\Api\ActivityLogController;
+use App\Http\Controllers\Api\DashboardController;
 use App\Http\Controllers\Api\OrganizationController;
 use Illuminate\Support\Facades\Route;
 
@@ -11,7 +14,7 @@ Route::get('/health', function () {
     return response()->json([
         'status' => 'ok',
         'service' => 'PulseDesk API',
-        'version' => '3.0.0',
+        'version' => '4.0.0',
     ]);
 });
 
@@ -27,15 +30,25 @@ Route::middleware('auth:sanctum')->group(function () {
     // Tickets
     Route::apiResource('tickets', TicketController::class);
 
-    // Comments (nested under tickets)
+    // Legacy comments (kept for backward compat)
     Route::get('/tickets/{ticket}/comments', [CommentController::class, 'index']);
     Route::post('/tickets/{ticket}/comments', [CommentController::class, 'store']);
     Route::put('/comments/{comment}', [CommentController::class, 'update']);
     Route::delete('/comments/{comment}', [CommentController::class, 'destroy']);
 
+    // Ticket Messages (conversations: public replies + internal notes)
+    Route::get('/tickets/{ticket}/messages', [TicketMessageController::class, 'index']);
+    Route::post('/tickets/{ticket}/messages', [TicketMessageController::class, 'store']);
+
+    // Activity Log
+    Route::get('/tickets/{ticket}/activity', [ActivityLogController::class, 'index']);
+
     // Tags
     Route::apiResource('tags', TagController::class);
 
-    // Organization members (for assignment dropdown)
+    // Organization
     Route::get('/org/members', [OrganizationController::class, 'members']);
+
+    // Dashboard / Analytics
+    Route::get('/dashboard/metrics', [DashboardController::class, 'metrics']);
 });

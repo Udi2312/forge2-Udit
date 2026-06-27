@@ -61,4 +61,14 @@ class Ticket extends Model
     {
         return $this->belongsToMany(Tag::class, 'ticket_tag');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(TicketMessage::class);
+    }
+
+    public function activityLogs()
+    {
+        return $this->hasMany(ActivityLog::class);
+    }
 }
