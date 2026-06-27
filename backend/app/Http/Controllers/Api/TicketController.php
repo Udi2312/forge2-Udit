@@ -6,8 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Ticket;
 use App\Models\Tag;
 use App\Models\User;
+use App\Models\ActivityLog;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 
 class TicketController extends Controller
 {
@@ -16,7 +16,6 @@ class TicketController extends Controller
         $query = Ticket::query()
             ->with(['requester', 'assignee', 'tags']);
 
-        // Search: subject or description
         if ($search = $request->get('search')) {
             $query->where(function ($q) use ($search) {
                 $q->where('subject', 'like', "%{$search}%")
@@ -24,17 +23,14 @@ class TicketController extends Controller
             });
         }
 
-        // Filter: status (supports comma-separated multi-select)
         if ($status = $request->get('status')) {
             $query->whereIn('status', explode(',', $status));
         }
 
-        // Filter: priority
         if ($priority = $request->get('priority')) {
             $query->whereIn('priority', explode(',', $priority));
         }
 
-        // Filter: assignee_id
         if ($assigneeId = $request->get('assignee_id')) {
             if ($assigneeId === 'unassigned') {
                 $query->whereNull('assignee_id');
@@ -43,14 +39,12 @@ class TicketController extends Controller
             }
         }
 
-        // Filter: tag (by name)
         if ($tagName = $request->get('tag')) {
             $query->whereHas('tags', function ($q) use ($tagName) {
                 $q->where('name', $tagName);
             });
         }
 
-        // Sort
         $sort = $request->get('sort', 'created_at');
         $dir = $request->get('dir', 'desc');
         $allowedSorts = ['created_at', 'updated_at', 'subject', 'status', 'priority'];
@@ -85,6 +79,12 @@ class TicketController extends Controller
         if (!empty($data['tag_ids'])) {
             $ticket->tags()->attach($data['tag_ids']);
         }
+
+        ActivityLog::create([
+            'ticket_id' => $ticket->id,
+            'user_id' => $request->user()->id,
+            'event' => 'created',
+        ]);
 
         return response()->json($ticket->load(['requester', 'assignee', 'tags']), 201);
     }
@@ -121,11 +121,50 @@ class TicketController extends Controller
             }
         }
 
+        // Track changes for activity log
+        $changes = [];
+        foreach (['status', 'priority', 'assignee_id'] as $field) {
+            if (array_key_exists($field, $data)) {
+                $oldVal = $ticket->$field;
+                $newVal = $data[$field];
+                if ((string) $oldVal !== (string) $newVal) {
+                    $changes[] = [
+                        'field' => $field,
+                        'old_value' => $oldVal,
+                        'new_value' => $newVal,
+                    ];
+                }
+            }
+        }
+
         $ticket->update($data);
 
-        // Sync tags if provided
+        // Log changes
+        foreach ($changes as $change) {
+            $eventLabel = match($change['field']) {
+                'status' => 'status_changed',
+                'priority' => 'priority_changed',
+                'assignee_id' => 'assigned',
+                default => 'updated',
+            };
+
+            ActivityLog::create([
+                'ticket_id' => $ticket->id,
+                'user_id' => $request->user()->id,
+                'event' => $eventLabel,
+                'field' => $change['field'],
+                'old_value' => $change['old_value'] ? (string) $change['old_value'] : null,
+                'new_value' => $change['new_value'] ? (string) $change['new_value'] : null,
+            ]);
+        }
+
         if (array_key_exists('tag_ids', $data)) {
             $ticket->tags()->sync($data['tag_ids']);
+            ActivityLog::create([
+                'ticket_id' => $ticket->id,
+                'user_id' => $request->user()->id,
+                'event' => 'tagged',
+            ]);
         }
 
         return response()->json($ticket->load(['requester', 'assignee', 'tags']));

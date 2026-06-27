@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useAuth } from '../lib/auth'
+import { Link } from 'react-router-dom'
 import api from '../lib/api'
 
 export default function Dashboard() {
@@ -67,6 +68,7 @@ export default function Dashboard() {
           <div className="flex justify-between h-16 items-center">
             <div className="flex items-center gap-8">
               <h1 className="text-xl font-bold text-gray-900">PulseDesk</h1>
+              <Link to="/insights" className="text-sm text-indigo-600 hover:text-indigo-500">Insights</Link>
               <span className="text-sm text-gray-500">{user?.organization?.name}</span>
             </div>
             <div className="flex items-center gap-4">
