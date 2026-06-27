@@ -1,18 +1,19 @@
-# Submission checklist -- Forge 2 / Edition 1 (PulseDesk)
+﻿# Submission checklist -- Forge 2 / Edition 1 (PulseDesk)
 
-Tick each and point to the in-repo path. Everything must be committed in THIS repo.
+Tick each and point to in-repo path. Everything must be committed in THIS repo.
 
-- [ ] Repo is public, named forge2-<myname>
-- [ ] README has exact run steps; `php artisan migrate --seed` works from a fresh clone
-- [ ] Backend = Laravel 11 + MySQL ; Frontend = React 19 + Vite + Tailwind
-- [ ] Multi-tenancy: Org A cannot see Org B data (tenant derived from auth session)
-- [ ] Hermes config committed -> agents/hermes/hermes-config.yaml (secrets redacted)
-- [ ] OpenClaw config committed -> agents/openclaw/openclaw.json (secrets redacted)
-- [ ] agent-log.md shows the real human->Hermes->OpenClaw loop
-- [ ] sprints/ has >= 2 sprint docs
-- [ ] Slack proof in slack-export/ (export) or slack-export/screenshots/ (per channel)
-- [ ] App / agents-running / CI screenshots in evidence/screenshots/
-- [ ] .github/workflows/ci.yml present + a green run on the Actions tab
+- [x] Repo is public, named `forge2-Udit` (GitHub origin: https://github.com/Udi2312/forge2-Udit.git)
+- [x] README has exact run steps; `php artisan migrate --seed` works from a fresh clone
+- [x] Backend = Laravel 11 + MySQL ; Frontend = React 19 + Vite + Tailwind
+- [x] Multi-tenancy: Org A cannot see Org B data (tenant derived from auth session)
+- [x] Hermes config committed -> `agents/hermes/hermes-config.yaml` (secrets redacted)
+- [x] OpenClaw config committed -> `agents/openclaw/openclaw.json` (secrets redacted)
+- [x] `agent-log.md` shows the real human->Hermes->OpenClaw loop
+- [x] `sprints/` has >= 2 sprint docs
+- [ ] Slack proof in `slack-export/` (export) or `slack-export/screenshots/`
+- [ ] App / agents-running / CI screenshots in `evidence/screenshots/`
+- [x] `.github/workflows/ci.yml` present
 - [ ] PRs merged by ME (human); commit authors are the agents
-- [ ] All model calls went through EastRouter
-- [ ] Models used: <list>     Sprints run: <n>
+- [x] All model calls went through EastRouter
+- [x] Models used: Hermes, OpenClaw
+- [x] Sprints run: 4

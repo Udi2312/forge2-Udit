@@ -1,15 +1,20 @@
-# MEMORY.md — Long-Term Memory
-
-_Curated notes. Distilled, not raw._
+﻿# MEMORY.md — Long-Term Memory
 
 ## Human
-- No profile yet. USER.md still blank.
+- Name: Udit Bansal
+- Prefers direct, practical assistance
+- Working on agent orchestration, Slack/GitHub integration, and documentation
 
 ## Workspace
-- Bootstrap complete. IDENTITY set, memory dir created, SOUL/AGENTS in place.
+- Repo: `D:\forge2-UditBansal`
+- GitHub origin: `https://github.com/Udi2312/forge2-Udit.git`
+- Current focus: Hermes/OpenClaw local agent workflow, CI automation, docs completion
 
-## Preferences / Style
-- Likes brief, useful replies. "Wake up" framing suggests friendly tone is welcome.
+## Current facts
+- OpenClaw CLI is installed and available
+- Slack bot token is stored in `agents/openclaw/.env`
+- GitHub PR helper relies on `GITHUB_TOKEN`
+- CI workflow is configured in `.github/workflows/ci.yml`
 
-## Open Threads
-- (none yet)
+## Notes
+- User asked to complete all markdown documentation quickly

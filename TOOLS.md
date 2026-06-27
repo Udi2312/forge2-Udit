@@ -1,44 +1,22 @@
-# TOOLS.md - Local Notes
+﻿# TOOLS.md - Local Notes
 
-Skills define _how_ tools work. This file is for _your_ specifics — the stuff that's unique to your setup.
+## Local setup
+- Workspace root: `D:\forge2-UditBansal`
+- GitHub repo: `https://github.com/Udi2312/forge2-Udit.git`
+- Git remote origin is configured for this repository
 
-## What Goes Here
+## Agent tooling
+- `openclaw` CLI installed, version `2026.6.10`
+- OpenClaw config: `agents/openclaw/openclaw.json`
+- Local OpenClaw secret token file: `agents/openclaw/.env`
+- Slack bot token variable: `SLACK_BOT_TOKEN`
+- Slack app token variable: `SLACK_APP_TOKEN`
 
-Things like:
+## CI / GitHub
+- GitHub PR helper script: `.github/create_pr.py`
+- CI runner script: `agents/ci/ci_runner.py`
+- GitHub token source: environment variable `GITHUB_TOKEN`
 
-- Camera names and locations
-- SSH hosts and aliases
-- Preferred voices for TTS
-- Speaker/room names
-- Device nicknames
-- Anything environment-specific
-
-## Examples
-
-```markdown
-### Cameras
-
-- living-room → Main area, 180° wide angle
-- front-door → Entrance, motion-triggered
-
-### SSH
-
-- home-server → 192.168.1.100, user: admin
-
-### TTS
-
-- Preferred voice: "Nova" (warm, slightly British)
-- Default speaker: Kitchen HomePod
-```
-
-## Why Separate?
-
-Skills are shared. Your setup is yours. Keeping them apart means you can update skills without losing your notes, and share skills without leaking your infrastructure.
-
----
-
-Add whatever helps you do your job. This is your cheat sheet.
-
-## Related
-
-- [Agent workspace](/concepts/agent-workspace)
+## Notes
+- Keep `agents/openclaw/.env` out of git; `.gitignore` already ignores secrets
+- `agents/channels/` stores local message bus logs by channel

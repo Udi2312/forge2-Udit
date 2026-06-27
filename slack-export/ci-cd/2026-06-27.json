@@ -1,0 +1,491 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U0BDHPXCJP8",
+        "text": "<@U0BDHPXCJP8> has joined the channel",
+        "inviter": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782548317.063599"
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U0BDPH2TK0U",
+        "text": "<@U0BDPH2TK0U> has joined the channel",
+        "inviter": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782548323.082799"
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782553235.490649",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "Sprint 1 PR - *Merged* ?\nPR: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2>\nBranch: feature\/sprint-1-project-foundation ? main\n\n*CI Status:*\n? Backend (Laravel) - passed\n? Frontend (React + Vite) - passed",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "deleted": false,
+            "name": "openclaw-bot",
+            "updated": 1782541588,
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "fallback": "GitHub: Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "text": "Sprint 1 - Project Foundation\nBackend\n\nLaravel 11 scaffolded in backend\/ (PHP 8.2+)\nMySQL configured via environment variables\nLaravel Sanctum installed and configured\nAPI routes enabled with \/api\/...",
+                "title": "Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "LTzVE",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sprint 1 PR - "
+                            },
+                            {
+                                "type": "text",
+                                "text": "Merged",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " ?\nPR: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nBranch: feature\/sprint-1-project-foundation ? main\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "CI Status:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n? Backend (Laravel) - passed\n? Frontend (React + Vite) - passed"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782555407.366819",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "Sprint 1 PR - Merged\nPR: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2>\nBranch: feature\/sprint-1-project-foundation -&gt; main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "image_url": "https:\/\/opengraph.githubassets.com\/a48c4b72554f8b74f96b65652819bad97eb8a4e8d6beea308e7219bbac50e7a2\/Udi2312\/forge2-Udit\/pull\/2",
+                "image_width": 1200,
+                "image_height": 600,
+                "image_bytes": 40378,
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "fallback": "GitHub: Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "text": "Sprint 1 - Project Foundation\nBackend\n\nLaravel 11 scaffolded in backend\/ (PHP 8.2+)\nMySQL configured via environment variables\nLaravel Sanctum installed and configured\nAPI routes enabled with \/api\/...",
+                "title": "Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "fLSC",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sprint 1 PR - Merged\nPR: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nBranch: feature\/sprint-1-project-foundation -> main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782557622.172499",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "Sprint 1 PR\nPR: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2>\nBranch: feature\/sprint-1-project-foundation -&gt; main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "image_url": "https:\/\/opengraph.githubassets.com\/a48c4b72554f8b74f96b65652819bad97eb8a4e8d6beea308e7219bbac50e7a2\/Udi2312\/forge2-Udit\/pull\/2",
+                "image_width": 1200,
+                "image_height": 600,
+                "image_bytes": 40378,
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "fallback": "GitHub: Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "text": "Sprint 1 - Project Foundation\nBackend\n\nLaravel 11 scaffolded in backend\/ (PHP 8.2+)\nMySQL configured via environment variables\nLaravel Sanctum installed and configured\nAPI routes enabled with \/api\/...",
+                "title": "Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "N8Az",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sprint 1 PR\nPR: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nBranch: feature\/sprint-1-project-foundation -> main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782559600.667109",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "Sprint 2 PR\nPR: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/4>\nBranch: feature\/sprint-2-auth-tickets-comments -&gt; main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "p8N",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sprint 2 PR\nPR: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nBranch: feature\/sprint-2-auth-tickets-comments -> main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782562017.204259",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "Sprint 3 PR\nPR: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5>\nBranch: feature\/sprint-3-core-ticketing -&gt; main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed\n- 30 tests, 67 assertions",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5",
+                "fallback": "GitHub: Sprint 3: Core Ticketing Engine — Tags, Advanced Filters, Assignment by Udi2312 · Pull Request #5 · Udi2312\/forge2-Udit",
+                "text": "Backend:\n\nTag model with tenant scope, many-to-many with Ticket\nTag migration + ticket_tag pivot table\nTagController: full CRUD (create, list, update, delete)\nEnhanced TicketController: search (sub...",
+                "title": "Sprint 3: Core Ticketing Engine — Tags, Advanced Filters, Assignment by Udi2312 · Pull Request #5 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "PP=",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sprint 3 PR\nPR: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\nBranch: feature\/sprint-3-core-ticketing -> main\n\nCI Status:\n- Backend (Laravel): passed\n- Frontend (React + Vite): passed\n- 30 tests, 67 assertions"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782563329.070139",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "Sprint 4 CI\/CD Status",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "image_url": "https:\/\/opengraph.githubassets.com\/efaeaa3f31f9a2960364249bbccb52c319e6e8978ec22eb1dea6c51d47a12fa2\/Udi2312\/forge2-Udit\/pull\/6",
+                "image_width": 1200,
+                "image_height": 600,
+                "image_bytes": 57980,
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6",
+                "fallback": "GitHub: feat(sprint-4): ticket conversations, activity log, analytics dashboard by Udi2312 · Pull Request #6 · Udi2312\/forge2-Udit",
+                "text": "Backend:\n\nTicketMessage model + migration (public replies + internal notes)\nActivityLog model + migration (audit trail for all ticket events)\nTicketMessageController with role-based visibility (cus...",
+                "title": "feat(sprint-4): ticket conversations, activity log, analytics dashboard by Udi2312 · Pull Request #6 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6",
+                "service_name": "GitHub"
+            },
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289167542",
+                "image_url": "https:\/\/opengraph.githubassets.com\/5bba12ff5bea750fe2b94088723774de5ed20f5c86f511e9e38243abd8c48df3\/Udi2312\/forge2-Udit",
+                "image_width": 1200,
+                "image_height": 600,
+                "image_bytes": 30989,
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 2,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289167542",
+                "fallback": "GitHub: feat(sprint-4): ticket conversations, activity log, analytics dashboard · Udi2312\/forge2-Udit@166ddda",
+                "text": "Contribute to Udi2312\/forge2-Udit development by creating an account on GitHub.",
+                "title": "feat(sprint-4): ticket conversations, activity log, analytics dashboard · Udi2312\/forge2-Udit@166ddda",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289167542",
+                "service_name": "GitHub"
+            },
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289170736",
+                "image_url": "https:\/\/opengraph.githubassets.com\/5bba12ff5bea750fe2b94088723774de5ed20f5c86f511e9e38243abd8c48df3\/Udi2312\/forge2-Udit",
+                "image_width": 1200,
+                "image_height": 600,
+                "image_bytes": 30989,
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 3,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289170736",
+                "fallback": "GitHub: Merge pull request #6 from Udi2312\/feature\/sprint-04-conversations-da… · Udi2312\/forge2-Udit@7c9d671",
+                "text": "Contribute to Udi2312\/forge2-Udit development by creating an account on GitHub.",
+                "title": "Merge pull request #6 from Udi2312\/feature\/sprint-04-conversations-da… · Udi2312\/forge2-Udit@7c9d671",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289170736",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "header",
+                "block_id": "SZIMi",
+                "text": {
+                    "type": "plain_text",
+                    "text": "Sprint 4 CI\/CD Status",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "section",
+                "block_id": "UFDRE",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*PR <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6|#6> - Merged ?*\\n\\n*Backend:* ? All checks passed\\n. 46 tests, 110 assertions\\n. PHP 8.2 \/ Laravel 11\\n\\n*Frontend:* ? Build successful\\n. Vite build: 703KB JS \/ 18KB CSS\\n. React 19 + recharts\\n\\n*Runs:*\\n. <https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289167542|CI on feature branch> - ?\\n. <https:\/\/github.com\/Udi2312\/forge2-Udit\/actions\/runs\/28289170736|CI on main> - ?",
+                    "verbatim": false
+                }
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782564991.347659",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "? Sprint 5 CI Status\n\n. Backend: 64 tests, 139 assertions - ALL PASSING\n. Frontend: Build successful (707KB JS, 20KB CSS)\n. Branch: feature\/sprint-05-sla-polish\n. PR #7: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7>\n\nNew test suites:\n. SlaPolicyTest (10 tests)\n. NotificationTest (8 tests)\n\nAll 10 test suites green.",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7",
+                "fallback": "GitHub: Sprint 5: SLA Policy Engine, Notifications, UI Polish &amp; Documentation by Udi2312 · Pull Request #7 · Udi2312\/forge2-Udit",
+                "text": "Backend:\n\nSlaPolicy model + migration (per-org, per-priority response\/resolution targets)\nNotification model + migration (in-app alerts with type, is_read)\nTicket model: slaPolicy() relationship + ...",
+                "title": "Sprint 5: SLA Policy Engine, Notifications, UI Polish &amp; Documentation by Udi2312 · Pull Request #7 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "ojO",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "? Sprint 5 CI Status\n\n. Backend: 64 tests, 139 assertions - ALL PASSING\n. Frontend: Build successful (707KB JS, 20KB CSS)\n. Branch: feature\/sprint-05-sla-polish\n. PR #7: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n\nNew test suites:\n. SlaPolicyTest (10 tests)\n. NotificationTest (8 tests)\n\nAll 10 test suites green."
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

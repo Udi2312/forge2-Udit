@@ -1,0 +1,724 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U0BDHPXCJP8",
+        "text": "<@U0BDHPXCJP8> has joined the channel",
+        "inviter": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782548297.648209"
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U0BDPH2TK0U",
+        "text": "<@U0BDPH2TK0U> has joined the channel",
+        "inviter": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782548308.064289"
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782553224.139009",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "*What I Did*\n. Scaffolded Laravel 11 backend in backend\/ (PHP 8.2+, MySQL, Sanctum)\n. Scaffolded React 19 + Vite frontend in frontend\/\n. Installed and configured Tailwind CSS v4, Axios, React Router\n. Created GitHub Actions CI workflow (backend + frontend jobs)\n. Updated README.md with full setup instructions\n. Configured .env.example files for both backend and frontend\n. PR merged: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2>\n\n*Tests Executed*\n. php artisan test - 2 passed\n. npm run build - built successfully\n. \/api\/health endpoint - returned {\"status\":\"ok\"} \n\n*Files Changed*\n. 76 files added across backend\/ and frontend\/\n. .github\/workflows\/ci.yml updated with frontend job\n. README.md rewritten with setup instructions\n\n*What's Left*\n. Nothing for Sprint 1 scope - all acceptance criteria met\n\n*Needs Human Decision*\n. None",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "fallback": "GitHub: Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "text": "Sprint 1 - Project Foundation\nBackend\n\nLaravel 11 scaffolded in backend\/ (PHP 8.2+)\nMySQL configured via environment variables\nLaravel Sanctum installed and configured\nAPI routes enabled with \/api\/...",
+                "title": "Sprint 1: Project Foundation by Udi2312 · Pull Request #2 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "nEf5",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "What I Did",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. Scaffolded Laravel 11 backend in backend\/ (PHP 8.2+, MySQL, Sanctum)\n. Scaffolded React 19 + Vite frontend in frontend\/\n. Installed and configured Tailwind CSS v4, Axios, React Router\n. Created GitHub Actions CI workflow (backend + frontend jobs)\n. Updated README.md with full setup instructions\n. Configured .env.example files for both backend and frontend\n. PR merged: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/2"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Tests Executed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. php artisan test - 2 passed\n. npm run build - built successfully\n. \/api\/health endpoint - returned {\"status\":\"ok\"} \n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Files Changed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. 76 files added across backend\/ and frontend\/\n. .github\/workflows\/ci.yml updated with frontend job\n. README.md rewritten with setup instructions\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "What's Left",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. Nothing for Sprint 1 scope - all acceptance criteria met\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Needs Human Decision",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. None"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782555407.000709",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "*What I Did*\n- Scaffolded Laravel 11 backend (PHP 8.2+, MySQL, Sanctum)\n- Scaffolded React 19 + Vite frontend\n- Installed Tailwind CSS v4, Axios, React Router\n- Created GitHub Actions CI (backend + frontend jobs)\n- Updated README.md with setup instructions\n- Configured .env.example files\n\n*Tests Executed*\n- php artisan test (2 passed)\n- npm run build (success)\n- \/api\/health endpoint returned ok\n\n*Files Changed*\n- 76 files added across backend\/ and frontend\/\n- .github\/workflows\/ci.yml updated\n- README.md rewritten\n\n*What's Left*\n- Nothing for Sprint 1 - all acceptance criteria met\n\n*Needs Human Decision*\n- None",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "kvnJ",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "What I Did",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- Scaffolded Laravel 11 backend (PHP 8.2+, MySQL, Sanctum)\n- Scaffolded React 19 + Vite frontend\n- Installed Tailwind CSS v4, Axios, React Router\n- Created GitHub Actions CI (backend + frontend jobs)\n- Updated README.md with setup instructions\n- Configured .env.example files\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Tests Executed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- php artisan test (2 passed)\n- npm run build (success)\n- \/api\/health endpoint returned ok\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Files Changed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- 76 files added across backend\/ and frontend\/\n- .github\/workflows\/ci.yml updated\n- README.md rewritten\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "What's Left",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- Nothing for Sprint 1 - all acceptance criteria met\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Needs Human Decision",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- None"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782557621.861979",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "*What I Did*\n- Scaffolded Laravel 11 backend (PHP 8.2+, MySQL, Sanctum)\n- Scaffolded React 19 + Vite frontend\n- Installed Tailwind CSS v4, Axios, React Router\n- Created GitHub Actions CI (backend + frontend jobs)\n- Updated README.md with setup instructions\n- Configured .env.example files\n\n*Tests Executed*\n- php artisan test (2 passed)\n- npm run build (success)\n- \/api\/health returned ok\n\n*Files Changed*\n- backend\/ and frontend\/ scaffolds\n- .github\/workflows\/ci.yml\n- README.md\n\n*What's Left*\n- Nothing - all Sprint 1 acceptance criteria met\n\n*Needs Human Decision*\n- None",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "U+F",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "What I Did",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- Scaffolded Laravel 11 backend (PHP 8.2+, MySQL, Sanctum)\n- Scaffolded React 19 + Vite frontend\n- Installed Tailwind CSS v4, Axios, React Router\n- Created GitHub Actions CI (backend + frontend jobs)\n- Updated README.md with setup instructions\n- Configured .env.example files\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Tests Executed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- php artisan test (2 passed)\n- npm run build (success)\n- \/api\/health returned ok\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Files Changed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- backend\/ and frontend\/ scaffolds\n- .github\/workflows\/ci.yml\n- README.md\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "What's Left",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- Nothing - all Sprint 1 acceptance criteria met\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Needs Human Decision",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- None"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782559599.302269",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "*What I Did*\n- Multi-tenant orgs: Organization model, migration, global scope on tickets\n- Auth: register, login, logout with Sanctum tokens\n- Ticket CRUD: create, list (paginated), show, update, delete - all tenant-scoped\n- Comments: public replies + internal notes on tickets\n- Seeders + factories: orgs, users, tickets, comments\n- Frontend: login\/register pages with auth context\n- Frontend: ticket dashboard with status filters + new ticket form\n- Frontend: ticket detail with comments, status changes, internal notes\n- Protected routes (redirect unauthenticated users)\n\n*Tests Executed*\n- php artisan test: 14 passed (35 assertions)\n- npm run build: success (293KB JS bundle)\n- CI: backend passed, frontend passed\n\n*Files Changed*\n- backend\/app\/Models: User (org relation + role), Organization, Ticket (tenant scope), Comment\n- backend\/app\/Http\/Controllers\/Api: AuthController, TicketController, CommentController\n- backend\/routes\/api.php: auth + ticket + comment routes\n- backend\/database\/factories: OrganizationFactory, TicketFactory, CommentFactory\n- backend\/database\/seeders\/DatabaseSeeder.php\n- backend\/tests\/Feature: AuthTest, TicketTest\n- frontend\/src\/lib: api.js, auth.jsx\n- frontend\/src\/pages: Login, Register, Dashboard, TicketDetail\n- frontend\/src\/App.jsx: full router with protected\/public routes\n\n*What's Left*\n- SLA policies (Sprint 3)\n- Activity log (Sprint 3)\n\n*Needs Human Decision*\n- PR merge approval: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/4>",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "deupl",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "What I Did",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- Multi-tenant orgs: Organization model, migration, global scope on tickets\n- Auth: register, login, logout with Sanctum tokens\n- Ticket CRUD: create, list (paginated), show, update, delete - all tenant-scoped\n- Comments: public replies + internal notes on tickets\n- Seeders + factories: orgs, users, tickets, comments\n- Frontend: login\/register pages with auth context\n- Frontend: ticket dashboard with status filters + new ticket form\n- Frontend: ticket detail with comments, status changes, internal notes\n- Protected routes (redirect unauthenticated users)\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Tests Executed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- php artisan test: 14 passed (35 assertions)\n- npm run build: success (293KB JS bundle)\n- CI: backend passed, frontend passed\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Files Changed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- backend\/app\/Models: User (org relation + role), Organization, Ticket (tenant scope), Comment\n- backend\/app\/Http\/Controllers\/Api: AuthController, TicketController, CommentController\n- backend\/routes\/api.php: auth + ticket + comment routes\n- backend\/database\/factories: OrganizationFactory, TicketFactory, CommentFactory\n- backend\/database\/seeders\/DatabaseSeeder.php\n- backend\/tests\/Feature: AuthTest, TicketTest\n- frontend\/src\/lib: api.js, auth.jsx\n- frontend\/src\/pages: Login, Register, Dashboard, TicketDetail\n- frontend\/src\/App.jsx: full router with protected\/public routes\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "What's Left",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- SLA policies (Sprint 3)\n- Activity log (Sprint 3)\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Needs Human Decision",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- PR merge approval: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/4"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782562016.900179",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "*Sprint 3 Complete - Core Ticketing Engine*\n\n*What I Did*\n- Tag system: model with tenant scope, many-to-many pivot, TagController (full CRUD)\n- Advanced search\/filtering: subject+description search, multi-status, priority, assignee (incl unassigned), tag filter, sorting\n- Assignment logic: assignee validated against org - cross-org returns 422\n- Org members endpoint: GET \/api\/org\/members for assignment dropdowns\n- Frontend: advanced filter bar (status, priority, assignee, tag, search)\n- Frontend: tag badges in list, inline tag editor on ticket detail\n- Frontend: assignee dropdown + priority selector in sidebar\n- Updated seeder: tags per org, attached to tickets\n\n*Tests Executed*\n- php artisan test: 30 passed (67 assertions)\n- npm run build: success (300KB JS, 17KB CSS)\n- CI: backend passed, frontend passed\n\n*Acceptance Criteria*\n- [x] Tickets strictly isolated by organization_id\n- [x] CRUD fully functional\n- [x] Search and filters return correct result sets\n- [x] Agents can assign tickets to same-org members only\n- [x] Tags persisted and displayed correctly\n- [x] All tests pass, CI green\n\n*PR:* <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5>\n*Needs Human Decision:* PR merge approval",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5",
+                "fallback": "GitHub: Sprint 3: Core Ticketing Engine — Tags, Advanced Filters, Assignment by Udi2312 · Pull Request #5 · Udi2312\/forge2-Udit",
+                "text": "Backend:\n\nTag model with tenant scope, many-to-many with Ticket\nTag migration + ticket_tag pivot table\nTagController: full CRUD (create, list, update, delete)\nEnhanced TicketController: search (sub...",
+                "title": "Sprint 3: Core Ticketing Engine — Tags, Advanced Filters, Assignment by Udi2312 · Pull Request #5 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "xB3gD",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "Sprint 3 Complete - Core Ticketing Engine",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "What I Did",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- Tag system: model with tenant scope, many-to-many pivot, TagController (full CRUD)\n- Advanced search\/filtering: subject+description search, multi-status, priority, assignee (incl unassigned), tag filter, sorting\n- Assignment logic: assignee validated against org - cross-org returns 422\n- Org members endpoint: GET \/api\/org\/members for assignment dropdowns\n- Frontend: advanced filter bar (status, priority, assignee, tag, search)\n- Frontend: tag badges in list, inline tag editor on ticket detail\n- Frontend: assignee dropdown + priority selector in sidebar\n- Updated seeder: tags per org, attached to tickets\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Tests Executed",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- php artisan test: 30 passed (67 assertions)\n- npm run build: success (300KB JS, 17KB CSS)\n- CI: backend passed, frontend passed\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Acceptance Criteria",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n- [x] Tickets strictly isolated by organization_id\n- [x] CRUD fully functional\n- [x] Search and filters return correct result sets\n- [x] Agents can assign tickets to same-org members only\n- [x] Tags persisted and displayed correctly\n- [x] All tests pass, CI green\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "PR:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/5"
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Needs Human Decision:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " PR merge approval"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782563316.645929",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "*Sprint 4 Complete - Conversations, Activity Log &amp; Analytics Dashboard*",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6",
+                "image_url": "https:\/\/opengraph.githubassets.com\/efaeaa3f31f9a2960364249bbccb52c319e6e8978ec22eb1dea6c51d47a12fa2\/Udi2312\/forge2-Udit\/pull\/6",
+                "image_width": 1200,
+                "image_height": 600,
+                "image_bytes": 57980,
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6",
+                "fallback": "GitHub: feat(sprint-4): ticket conversations, activity log, analytics dashboard by Udi2312 · Pull Request #6 · Udi2312\/forge2-Udit",
+                "text": "Backend:\n\nTicketMessage model + migration (public replies + internal notes)\nActivityLog model + migration (audit trail for all ticket events)\nTicketMessageController with role-based visibility (cus...",
+                "title": "feat(sprint-4): ticket conversations, activity log, analytics dashboard by Udi2312 · Pull Request #6 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "header",
+                "block_id": "Jpt\/F",
+                "text": {
+                    "type": "plain_text",
+                    "text": "Sprint 4 Complete",
+                    "emoji": true
+                }
+            },
+            {
+                "type": "section",
+                "block_id": "Qz8P8",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*Conversations, Activity Log &amp; Analytics Dashboard*\\n\\n*PR:* <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/6|#6 - merged>\\n*Tests:* 46 passed (110 assertions)\\n*CI:* ? Backend ? Frontend",
+                    "verbatim": false
+                }
+            },
+            {
+                "type": "divider",
+                "block_id": "27peY"
+            },
+            {
+                "type": "section",
+                "block_id": "nevyY",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*Backend Deliverables:*\\n. TicketMessage model + \ticket_messages migration - public replies + internal notes\\n. ActivityLog model + ctivity_logs migration - audit trail for all ticket events\\n. TicketMessageController - role-based visibility (customers can't see\/post internal notes)\\n. ActivityLogController - chronological timeline endpoint\\n. DashboardController - tenant-scoped metrics (status\/priority breakdown, avg resolution time, 14-day volume, agent performance)\\n. Activity logging auto-wired into TicketController (no duplicate logs)\\n. 3 new test suites: ConversationTest (6), ActivityLogTest (6), DashboardMetricsTest (4)\\n. API version bumped to 4.0.0",
+                    "verbatim": false
+                }
+            },
+            {
+                "type": "section",
+                "block_id": "FMhLF",
+                "text": {
+                    "type": "mrkdwn",
+                    "text": "*Frontend Deliverables:*\\n. TicketDetail rewritten with tabbed UI (Conversation + Activity)\\n. Conversation thread: chronological messages, internal note toggle (role-gated)\\n. Activity timeline: visual audit trail with field change details\\n. New Insights page (\/insights): metric cards, pie\/bar\/line charts, agent performance table\\n. Date range filter + 30s auto-polling\\n. Build: 703KB JS, 18KB CSS",
+                    "verbatim": false
+                }
+            }
+        ]
+    },
+    {
+        "user": "U0BDHPXCJP8",
+        "type": "message",
+        "ts": "1782564991.043739",
+        "bot_id": "B0BDPFZNRSQ",
+        "app_id": "A0BDGCUNP1T",
+        "text": "?? Sprint 5 COMPLETE: Quality, SLAs &amp; Final Polish\n\n*Backend:*\n. SLA Policy Engine (per-org, per-priority response\/resolution targets)\n. Notification System (in-app alerts on ticket changes)\n. SlaPolicyController (admin CRUD) + NotificationController\n. Ticket::slaStatus() - on_track\/warning\/breached\/met\/none\n. API v5.0.0\n\n*Frontend:*\n. NotificationBell component (bell icon, unread badge, dropdown, 30s poll)\n. SLA badges on Dashboard + TicketDetail with deadline display\n. Loading spinners, empty states, consistent styling\n\n*Tests:* 64 passed (139 assertions) - was 46, +18 new\n*Build:* 707KB JS, 20KB CSS\n\n*Docs:* User Manual + Technical Documentation\n\nPR: <https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7>",
+        "team": "T0BEE12RTA4",
+        "bot_profile": {
+            "id": "B0BDPFZNRSQ",
+            "app_id": "A0BDGCUNP1T",
+            "user_id": "U0BDHPXCJP8",
+            "name": "openclaw-bot",
+            "icons": {
+                "image_36": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_36.png",
+                "image_48": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/bot_48.png",
+                "image_72": "https:\/\/a.slack-edge.com\/80588\/img\/plugins\/app\/service_72.png"
+            },
+            "deleted": false,
+            "updated": 1782541588,
+            "team_id": "T0BEE12RTA4"
+        },
+        "attachments": [
+            {
+                "from_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7",
+                "service_icon": "https:\/\/a.slack-edge.com\/80588\/img\/unfurl_icons\/github.png",
+                "id": 1,
+                "original_url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7",
+                "fallback": "GitHub: Sprint 5: SLA Policy Engine, Notifications, UI Polish &amp; Documentation by Udi2312 · Pull Request #7 · Udi2312\/forge2-Udit",
+                "text": "Backend:\n\nSlaPolicy model + migration (per-org, per-priority response\/resolution targets)\nNotification model + migration (in-app alerts with type, is_read)\nTicket model: slaPolicy() relationship + ...",
+                "title": "Sprint 5: SLA Policy Engine, Notifications, UI Polish &amp; Documentation by Udi2312 · Pull Request #7 · Udi2312\/forge2-Udit",
+                "title_link": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7",
+                "service_name": "GitHub"
+            }
+        ],
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "C6M",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "text",
+                                "text": "?? Sprint 5 COMPLETE: Quality, SLAs & Final Polish\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Backend:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. SLA Policy Engine (per-org, per-priority response\/resolution targets)\n. Notification System (in-app alerts on ticket changes)\n. SlaPolicyController (admin CRUD) + NotificationController\n. Ticket::slaStatus() - on_track\/warning\/breached\/met\/none\n. API v5.0.0\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Frontend:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": "\n. NotificationBell component (bell icon, unread badge, dropdown, 30s poll)\n. SLA badges on Dashboard + TicketDetail with deadline display\n. Loading spinners, empty states, consistent styling\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Tests:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 64 passed (139 assertions) - was 46, +18 new\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Build:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " 707KB JS, 20KB CSS\n\n"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Docs:",
+                                "style": {
+                                    "bold": true
+                                }
+                            },
+                            {
+                                "type": "text",
+                                "text": " User Manual + Technical Documentation\n\nPR: "
+                            },
+                            {
+                                "type": "link",
+                                "url": "https:\/\/github.com\/Udi2312\/forge2-Udit\/pull\/7"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

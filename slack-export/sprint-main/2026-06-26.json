@@ -1,0 +1,101 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U0BDHKMD3SS",
+        "text": "<@U0BDHKMD3SS> has joined the channel",
+        "type": "message",
+        "ts": "1782539478.912199"
+    },
+    {
+        "subtype": "channel_join",
+        "user": "U0BDPH2TK0U",
+        "text": "<@U0BDPH2TK0U> has joined the channel",
+        "inviter": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782542596.694709"
+    },
+    {
+        "user": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782542604.516949",
+        "client_msg_id": "2e59c400-593d-4025-bb1f-4beab4e6bfc6",
+        "text": "<@U0BDPH2TK0U> hello",
+        "team": "T0BEE12RTA4",
+        "user_team": "T0BEE12RTA4",
+        "source_team": "T0BEE12RTA4",
+        "user_profile": {
+            "avatar_hash": "17505e4e781b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2026-06-26\/11459665015062_17505e4e781baa6a2b20_72.png",
+            "first_name": "Udit",
+            "real_name": "Udit Bansal",
+            "display_name": "",
+            "team": "T0BEE12RTA4",
+            "name": "udit.ban2312",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "0U65x",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U0BDPH2TK0U"
+                            },
+                            {
+                                "type": "text",
+                                "text": " hello"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "user": "U0BDHKMD3SS",
+        "type": "message",
+        "ts": "1782542802.523749",
+        "client_msg_id": "1ac484ab-eb47-49d9-a8d9-0073231d47e3",
+        "text": "<@U0BDPH2TK0U> hello bro",
+        "team": "T0BEE12RTA4",
+        "user_team": "T0BEE12RTA4",
+        "source_team": "T0BEE12RTA4",
+        "user_profile": {
+            "avatar_hash": "17505e4e781b",
+            "image_72": "https:\/\/avatars.slack-edge.com\/2026-06-26\/11459665015062_17505e4e781baa6a2b20_72.png",
+            "first_name": "Udit",
+            "real_name": "Udit Bansal",
+            "display_name": "",
+            "team": "T0BEE12RTA4",
+            "name": "udit.ban2312",
+            "is_restricted": false,
+            "is_ultra_restricted": false
+        },
+        "blocks": [
+            {
+                "type": "rich_text",
+                "block_id": "EZbQs",
+                "elements": [
+                    {
+                        "type": "rich_text_section",
+                        "elements": [
+                            {
+                                "type": "user",
+                                "user_id": "U0BDPH2TK0U"
+                            },
+                            {
+                                "type": "text",
+                                "text": " hello bro"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

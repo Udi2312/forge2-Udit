@@ -1,8 +1,16 @@
-# Slack proof goes here
+﻿# Slack proof
 
-Pick at least one (both is better):
-1. REAL EXPORT (best): Slack -> Settings & administration -> Workspace settings ->
-   Import/Export Data -> Export -> download the zip -> UNZIP it into this folder and commit
-   (you get per-channel JSON folders).
-2. SCREENSHOTS: put per-channel screenshots in screenshots/ showing real agent messages:
-   sprint-main-01.png, agent-coder-01.png, agent-log-01.png, ci-cd-01.png, human-review-01.png
+This folder is intended to hold Slack export evidence for the agent workflow.
+
+## Recommended proof
+- Export `#sprint-main`, `#agent-coder`, `#agent-log`, `#ci-cd`, and `#human-review`
+- Save either:
+  - Slack channel export JSON files under this folder
+  - Screenshots under `slack-export/screenshots/`
+
+## What to include
+- Hermes receiving a task in `#sprint-main`
+- Hermes assigning subtasks to `#agent-coder`
+- OpenClaw results posted to `#agent-log`
+- CI runner notifications in `#ci-cd`
+- PR creation or review prompt in `#human-review`

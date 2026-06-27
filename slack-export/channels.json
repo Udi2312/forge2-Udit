@@ -1,0 +1,180 @@
+[
+{
+    "id": "C0BDPDJ5Y5A",
+    "name": "agent-coder",
+    "created": 1782539505,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS",
+        "U0BDHPXCJP8",
+        "U0BDPH2TK0U"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    }
+},
+{
+    "id": "C0BEE136CUQ",
+    "name": "social",
+    "created": 1782537900,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "Other channels are for work. This one’s just for fun. Get to know your teammates and show your lighter side. 🎈",
+        "creator": "U0BDHKMD3SS",
+        "last_set": 1782537900
+    }
+},
+{
+    "id": "C0BEE2WPS5N",
+    "name": "human-review",
+    "created": 1782539564,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS",
+        "U0BDHPXCJP8",
+        "U0BDPH2TK0U"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    }
+},
+{
+    "id": "C0BDMHTQXPT",
+    "name": "all-forge2-final",
+    "created": 1782537899,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": true,
+    "members": [
+        "U0BDHKMD3SS"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "Share announcements and updates about company news, upcoming events, or teammates who deserve some kudos. ⭐",
+        "creator": "U0BDHKMD3SS",
+        "last_set": 1782537899
+    }
+},
+{
+    "id": "C0BDMHVUWSD",
+    "name": "new-channel",
+    "created": 1782537945,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "This channel is for everything #new-channel. Hold meetings, share docs, and make decisions together with your team.",
+        "creator": "U0BDHKMD3SS",
+        "last_set": 1782537945
+    }
+},
+{
+    "id": "C0BDHME8ZDL",
+    "name": "ci-cd",
+    "created": 1782539547,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS",
+        "U0BDHPXCJP8",
+        "U0BDPH2TK0U"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    }
+},
+{
+    "id": "C0BDHMF3DEJ",
+    "name": "agent-log",
+    "created": 1782539535,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS",
+        "U0BDHPXCJP8",
+        "U0BDPH2TK0U"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    }
+},
+{
+    "id": "C0BDDDW2YJX",
+    "name": "sprint-main",
+    "created": 1782539478,
+    "creator": "U0BDHKMD3SS",
+    "is_archived": false,
+    "is_general": false,
+    "members": [
+        "U0BDHKMD3SS",
+        "U0BDHPXCJP8",
+        "U0BDPH2TK0U"
+    ],
+    "topic": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    },
+    "purpose": {
+        "value": "",
+        "creator": "",
+        "last_set": 0
+    }
+}
+]

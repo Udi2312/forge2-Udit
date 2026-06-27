@@ -1,21 +1,17 @@
-# USER.md - About Your Human
+﻿# USER.md - About Your Human
 
-_Learn about the person you're helping. Update this as you go._
-
-- **Name:** Udit Bansal
-- **What to call them:** Udit
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
+- Name: Udit Bansal
+- What to call them: Udit
+- Preferred style: direct, practical, fast. Wants code-first fixes and real integration.
+- Current focus: agent orchestration, Slack/GitHub automation, repo documentation.
+- Platform: Windows; workspace at `D:\forge2-UditBansal`
+- Primary repo: `https://github.com/Udi2312/forge2-Udit.git`
 
 ## Context
+Udit is building a local AI agent orchestration demo that integrates Hermes, OpenClaw, CI automation, and GitHub PR flow.
+They expect Slack-style channel workflow, token persistence without repeated regeneration, and documentation that matches actual implementation status.
 
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
-
----
-
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
-
-## Related
-
-- [Agent workspace](/concepts/agent-workspace)
+## Notes
+- Likes short, action-oriented responses.
+- Wants the repo and docs to reflect actual implementation state.
+- Prefers stable configuration over repeated token regeneration.

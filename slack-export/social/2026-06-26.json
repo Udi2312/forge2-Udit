@@ -1,0 +1,89 @@
+[
+    {
+        "subtype": "channel_join",
+        "user": "U0BDHKMD3SS",
+        "text": "<@U0BDHKMD3SS> has joined the channel",
+        "type": "message",
+        "ts": "1782537900.189829"
+    },
+    {
+        "text": "",
+        "files": [
+            {
+                "id": "F0BDPBMVC5S",
+                "created": 1782537904,
+                "timestamp": 1782537904,
+                "mimetype": "application\/vnd.slack-docs",
+                "filetype": "quip",
+                "pretty_type": "Canvas",
+                "user": "U0BDHKMD3SS",
+                "user_team": "T0BEE12RTA4",
+                "editable": true,
+                "size": 2362,
+                "mode": "quip",
+                "is_external": false,
+                "external_type": "",
+                "is_public": true,
+                "public_url_shared": false,
+                "display_as_bot": false,
+                "username": "",
+                "name": "____________",
+                "title": ":tada::heartpulse::stuck_out_tongue_winking_eye:",
+                "is_modified_by_ai": false,
+                "url_private": "https:\/\/files.slack.com\/files-pri\/T0BEE12RTA4-F0BDPBMVC5S\/canvas?token=xoxe-11490036877344-11459451718133-11445154000423-fcb5a4cec51f8abc61e239326f02befe",
+                "url_private_download": "https:\/\/files.slack.com\/files-pri\/T0BEE12RTA4-F0BDPBMVC5S\/download\/canvas?token=xoxe-11490036877344-11459451718133-11445154000423-fcb5a4cec51f8abc61e239326f02befe",
+                "permalink": "https:\/\/forge2-final.slack.com\/docs\/T0BEE12RTA4\/F0BDPBMVC5S",
+                "permalink_public": "https:\/\/slack-files.com\/T0BEE12RTA4-F0BDPBMVC5S-3259a4d440",
+                "url_static_preview": "https:\/\/forge2-final.slack.com\/docs\/T0BEE12RTA4\/F0BDPBMVC5S\/mobile",
+                "quip_thread_id": "KWR9AAR2rIJ",
+                "updated": 1782545183,
+                "update_notification": 1782537908,
+                "canvas_readtime": 0.94339622641509,
+                "is_starred": false,
+                "skipped_shares": true,
+                "is_restricted_sharing_enabled": false,
+                "has_rich_preview": false,
+                "file_access": "visible",
+                "access": "owner",
+                "org_or_workspace_access": "none",
+                "title_blocks": [
+                    {
+                        "type": "rich_text",
+                        "block_id": "temp:C:KWR79529b226e198b0c833bcd278",
+                        "elements": [
+                            {
+                                "type": "rich_text_section",
+                                "elements": [
+                                    {
+                                        "type": "emoji",
+                                        "name": "tada",
+                                        "unicode": "1f389"
+                                    },
+                                    {
+                                        "type": "emoji",
+                                        "name": "heartpulse",
+                                        "unicode": "1f497"
+                                    },
+                                    {
+                                        "type": "emoji",
+                                        "name": "stuck_out_tongue_winking_eye",
+                                        "unicode": "1f61c"
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "canvas_creator_id": "U0BDHKMD3SS",
+                "team_pref_version_history_enabled": true,
+                "canvas_printing_enabled": true,
+                "is_ai_suggested": false
+            }
+        ],
+        "upload": false,
+        "user": "U0BDHKMD3SS",
+        "display_as_bot": false,
+        "type": "message",
+        "ts": "1782537909.043859"
+    }
+]
